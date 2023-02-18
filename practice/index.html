@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="pictures">
+      <div id="navbar">
+        <a href="index.html" class="logo">
+          <img src="images/logo.png" class="logo"
+        /></a>
+        <button type="button">Explore</button>
+      </div>
+      <div class="container">
+        <div class="info">
+          <h1>Nature</h1>
+          <p>
+            ... i know, so original! Well, i just wanna practice, and try add
+            some JS to my work. I sill learning, but thats ok. ´=) I'll figure
+            it out after a couple of gallons of coffee...
+          </p>
+          <input type="text" placeholder="Search" />
+        </div>
+      </div>
+      <div class="slider">
+        <img src="images/arrow-left.png" id="prev" />
+        <div class="preview">
+          <img src="images/small1.png" class="active thumbnail" />
+          <img src="images/small2.png" class="thumbnail" id="bg2" />
+          <img src="images/small3.png" class="thumbnail" />
+          <img src="images/small4.png" class="thumbnail" />
+          <img src="images/small5.png" class="thumbnail" />
+          <img src="images/small6.png" class="thumbnail" />
+        </div>
+        <img src="images/arrow-right.png" id="next" />
+      </div>
+    </div>
+
+    <script>
+      var prev = document.getElementById("prev");
+      var next = document.getElementById("next");
+      var thumbnail = document.getElementsByClassName("thumbnail");
+      var pictures = document.getElementById("pictures");
+
+      var backgroundImg = new Array(
+        "images/bg1.png",
+        "images/bg2.png",
+        "images/bg3.png",
+        "images/bg4.png",
+        "images/bg5.png",
+        "images/bg6.png"
+      );
+
+      let i = 0;
+      next.onclick = function () {
+        if (i < 5) {
+          pictures.style.backgroundImage =
+            'url("' + backgroundImg[i + 1] + '")';
+          thumbnail[i + 1].classList.add("active");
+          thumbnail[i].classList.remove("active");
+          i++;
+        }
+        prev.onclick = function () {
+          if (i > 0) {
+            pictures.style.backgroundImage =
+              'url("' + backgroundImg[i - 1] + '")';
+            thumbnail[i - 1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i--;
+          }
+        };
+      };
+    </script>
+  </body>
+</html>
